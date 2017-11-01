@@ -17,7 +17,7 @@ $(function () {
       },
     success:function (data) {
       // console.log(data);
-      var html =template("tel",data);
+      var html =template("tpl",data);
       $("tbody").html(html);
   
   

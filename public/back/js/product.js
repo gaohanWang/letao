@@ -5,6 +5,7 @@ $(function () {
   var currentPage = 1;
   var pageSize = 2;
   
+  var imgArr=[];
   
   function render() {
   $.ajax({
@@ -75,16 +76,22 @@ $(function () {
   $("#fileupload").fileupload({
     dataType:"json",
     done:function (e, data) {
-      console.log(e);
-      console.log(data);
+      // console.log(e);
+      // console.log(data);
       //上传成功吧图片上传到img_box中
 
       $(".img_box").append('<img src="'+ data.result.picAddr+'" width="100" hight="100">');
       
       
-      $form.data("bootstrapValidator").updateStatus("brandLogo", "NOT_VALIDATED");//验证中
+      //把图片存在这个数组里
+      imgArr.push(data.result);
   
-      $form.data("bootstrapValidator").updateStatus("brandId", "VALID");//成功
+      //判断数组的长度，如果长度是3了，就可以修改productLogo的校验状态
+      if (imgArr.length === 3) {
+        $form.data("bootstrapValidator").updateStatus("brandLogo", "VALID");
+      } else {
+        $form.data("bootstrapValidator").updateStatus("brandLogo", "INVALID");
+      }
     }
   });
   
@@ -159,8 +166,54 @@ $(function () {
           }
         }
       },
+      brandLogo:{
+        validators:{
+          notEmpty:{
+            message:"请上传3张图片"
+          }
+        }
+      },
     }
   });
+  
+  //取消默认事件
+  $form.on("success.form.bv",function (e) {
+    e.preventDefault();
+    // console.log(e);
+    //拼接数据
+    var param = $form.serialize();//获取input里的name值
+    //需要吧图片拼接到param中  picName  picAddr
+    param +="&picName1="+imgArr[0].picName+"&picAddr1="+imgArr[0].picAddr;
+    param +="&picName2="+imgArr[1].picName+"&picAddr2="+imgArr[1].picAddr;
+    param +="&picName3="+imgArr[2].picName+"&picAddr3="+imgArr[2].picAddr;
+    // console.log(param);
+  
+    //发送ajax请求
+    $.ajax({
+      type:"post",
+      url:"/product/addProduct",
+      data:param,
+      success:function (data) {
+        // console.log(data);
+        //如果确定之后关闭模态框
+        if(data.success){
+          $("#addModal").modal("hide");
+          //渲染第一页
+          currentPage = 1;
+          render();
+          
+          //重置表单样式
+          $form[0].reset();
+          $form.data("bootstrapValidator").resetForm();//重置验证的样式
+          $(".dropdown-text").text("请选择二级分类");//重置下拉列表的原始值
+          $(".img_box img").remove();
+          imgArr = [];
+          
+        }
+      }
+    })
+    
+  })
   
 });
 

@@ -1,0 +1,111 @@
+@charset "UTF-8";
+.cart_left{
+  float: left;
+  height: 30px;
+}
+.cart_left img{
+  width: 60px;
+  height: 60px;
+}
+.cart_right{
+  overflow: hidden;
+  padding:0;
+  padding-left: 10px;
+  
+}
+.cart_right .proname{
+  height: 42px;
+  color: #333;
+}
+.cart_info {
+  height: 30px;
+  line-height: 30px;
+}
+.cart_info .price{
+  color:red;
+}
+.cart_info .oldprice{
+  text-decoration: line-through;
+}
+.mui-table-cell{
+  position: relative;
+}
+.mui-table-cell .ck{
+  position: absolute;
+  bottom: 3px;
+  left: 7px;
+}
+.lt_total{
+  height: 30px;
+  line-height:30px;
+  font-size: 12px;
+  color: red;
+  padding:0 10px;
+  position: relative;
+}
+.lt_total a{
+  position: absolute;
+  top:0px;
+  right: 0px;
+  background-color: red;
+  color: #fff;
+  height: 30px;
+  padding:0 15px;
+}
+.lt_total {
+  height: 30px;
+  line-height: 30px;
+  background-color: #eee;
+  position: absolute;
+  bottom: 55px;
+  width: 100%;
+  z-index: 999;
+  padding-left: 10px;
+}
+
+.lt_total div {
+  font-size: 12px;
+  color: red;
+  font-weight: 700;
+}
+
+.lt_total a {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 30px;
+  background-color: red;
+  color: #fff;
+  font-size: 12px;
+  padding: 0 15px;
+}
+
+.mui-table-cell {
+  display: block;
+}
+
+
+
+.lt_edit_size {
+  text-align: left;
+}
+
+.lt_edit_size span {
+  background-color: #f5f5f5;
+  padding: 5px;
+  line-height: 36px;
+  border: 1px solid #ccc;
+}
+
+.lt_edit_size span.now {
+  background-color: #069;
+}
+
+.lt_edit_num {
+  text-align: left;
+}
+
+
+
+
+

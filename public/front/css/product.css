@@ -10,24 +10,34 @@
 .product strong{
   text-align: center;
 }
-.price{
+.product .price{
   color: red;
 }
-.oldprice{
+.product .oldprice{
   font-size: 14px;
   text-decoration: line-through;
 }
-.size{
+.product .size{
   background-color: #ccc;
   border:1px solid #666;
+  height:30px;
+  width: 30px;
+ padding: 5px;
+  display: inline-block;
+  margin-bottom: 7px;
 }
-.lt_cart{
+.product .size.now{
+  background-color: #069;
+}
+.product .lt_cart{
   background-color: #f5f5f5;
 }
 
-.lt_cart .mui-btn{
+.product .lt_cart .mui-btn{
   margin-top:10px;
 }
+
+
 
 
 

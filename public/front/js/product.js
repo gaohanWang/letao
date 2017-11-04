@@ -27,6 +27,10 @@ mui('.mui-slider').slider({
 var id = tools.getParam("productId");
 
 // var id = getParam("productId");
+// 获取productId
+//发送ajax请求
+// 渲染网页
+// 注意:里面都是添加了要重新渲染
 $.ajax({
   type:"get",
   url:"/product/queryProductDetail",
@@ -56,4 +60,50 @@ $.ajax({
   
 
   
+});
+
+//给span添加点击事件
+$(".mui-scroll").on("click",".size",function () {
+  $(this).addClass("now").siblings().removeClass("now");
+});
+
+//点击购物车添加到购物车
+$(".btn_add_cart").on("click",function () {
+  //获取size 的值
+  var size = $(".size.now").html();//拿到size的值
+  console.log(size);//就是点击的那个值
+  var num = $(".mui-numbox-input").val();//拿到input框里的值
+  //发送ajax请求
+  $.ajax({
+    type:"post",
+    url:"/cart/addCart",
+    data:{
+      productId:id,
+      num:num,
+      size:size
+    },
+    success:function (data) {
+      console.log(data);
+      if(data.success){
+        mui-alert("添加成功")
+      }
+      if(data.error === 400){
+        location.href = "login.html?retUrl"+location.href;
+      }
+    }
+  })
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+

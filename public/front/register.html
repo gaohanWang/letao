@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>登录系统</title>
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="lib/mui/css/mui.css">
+  <link rel="stylesheet" href="lib/fa/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/bese.css">
+  <link rel="stylesheet" href="css/register.css">
+</head>
+<body>
+
+
+<div class="lt_container">
+  <div class="lt_header">
+    <a class="icon_left" href="javascript:history.go(-1);"><span class="fa fa-chevron-left"></span></a>
+    <h4> 注册</h4>
+  </div>
+  
+  <div class="lt_content">
+    <form>
+      
+      <div class="mui-input-row">
+        <input type="text" placeholder="请输入用户名" name="username" >
+      </div>
+      
+      <div class="mui-input-row">
+        <input type="password" name="password" class="mui-input-password" placeholder="请输入密码">
+      </div>
+  
+      <div class="mui-input-row">
+        <input type="password" name="repassword" class="mui-input-password" placeholder="请输入确认密码">
+      </div>
+      
+      <div class="mui-input-row">
+        <input type="text" name="mobile" placeholder="请输入手机号">
+      </div>
+      <div class="mui-input-row code">
+        <input type="text" name="vCode" placeholder="请输入验证码">
+        <a href="javascript:;" class="btn_getcode mui-btn mui-btn-primary">获取验证码</a>
+      </div>
+  
+      <div class="mui-btn-row">
+        <a href="javascript:;" class="btn_register mui-btn mui-btn-primary mui-block">注册</a>
+      </div>
+  
+      <div class="mui-btn-row register_text">
+        <span class="mui-pull-left">
+          <input type="checkbox" checked>
+          我同意《会员服务协议》
+        </span>
+        <span class="mui-pull-right">
+          <a href="login.html" class="mui-btn mui-btn-link">立即登录</a>
+        </span>
+      </div>
+      
+
+
+    </form>
+  </div>
+  
+  
+
+</div>
+
+
+
+<script src="lib/mui/js/mui.js"></script>
+<script src="lib/zepto/zepto.min.js"></script>
+<script src="lib/artTemplate/template-web.js"></script>
+<script src="js/register.js"></script>
+</body>
+</html>

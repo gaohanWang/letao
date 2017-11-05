@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <title>登录系统</title>
+  <title>个人中心</title>
   <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="lib/mui/css/mui.css">
   <link rel="stylesheet" href="lib/fa/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/bese.css">
-  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/user.css">
 </head>
 <body>
 
@@ -21,26 +21,31 @@
   </div>
   
   <div class="lt_content">
-    <form class="mui-input-group">
-      <div class="mui-input-row">
-        <label>用户名</label>
-        <input type="text" placeholder="请输入用户名" name="username">
-      </div>
-    
-      <div class="mui-input-row">
-        <label>密码</label>
-        <input type="password" name="password" class="mui-input-password" placeholder="请输入密码" data-input-password="2"><span class="mui-icon mui-icon-eye"></span>
-      </div>
-    
-    
-      <div class="mui-button-row">
-        <button type="button" class="btn_login mui-btn mui-btn-primary">登录</button>&nbsp;&nbsp;
-        <button type="reset" class="mui-btn mui-btn-danger">重置</button>
-      </div>
-      <div class="mui-text-right">
-        <a href="register.html" class="mui-btn mui-btn-link register">立即注册</a>
-      </div>
-    </form>
+    <div class="mui-scroll" style="transform: translate3d(0px, 0px, 0px) translateZ(0px); transition-duration: 0ms;">
+      <ul class="mui-table-view mui-table-view-chevron">
+        <li class="lt_user mui-table-view-cell mui-media">
+         
+        </li>
+      </ul>
+      <ul class="mui-table-view mui-table-view-chevron">
+        <li class="mui-table-view-cell">
+          <a href="javascript:;" class="mui-navigate-right">账号与安全</a>
+        </li>
+      </ul>
+      <ul class="mui-table-view mui-table-view-chevron">
+        <li class="mui-table-view-cell">
+          <a href="cart.html" class="mui-navigate-right">我的购物车</a>
+        </li>
+        <li class="mui-table-view-cell">
+          <a href="javascript:;" class="mui-navigate-right">收货地址管理</a>
+        </li>
+      </ul>
+      <ul class="mui-table-view logout">
+        <li class="mui-table-view-cell" style="text-align: center;">
+          <a>退出登录</a>
+        </li>
+      </ul>
+    </div>
   </div>
   
   
@@ -64,7 +69,7 @@
           <p>购物车</p>
         </a>
       </li>
-      <li>
+      <li class="now">
         <a href="user.html">
           <span class="fa fa-user"></span>
           <p>会员中心</p>
@@ -75,12 +80,19 @@
 </div>
 
 <script type="text/html" id="tpl">
- 
+  <a class="mui-navigate-right" href="javascript:;">
+    <img class="mui-media-object mui-pull-left head-img" id="head-img" src="images/user.jpg">
+    <div class="mui-media-body">
+      {{username}}
+      <p class="mui-ellipsis">手机绑定:{{mobile}}</p>
+    </div>
+  </a>
 </script>
 
 <script src="lib/mui/js/mui.js"></script>
 <script src="lib/zepto/zepto.min.js"></script>
 <script src="lib/artTemplate/template-web.js"></script>
-<script src="js/login.js"></script>
+<script src="js/bese.js"></script>
+<script src="js/user.js"></script>
 </body>
 </html>

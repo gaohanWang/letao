@@ -1,0 +1,24 @@
+@charset "UTF-8";
+.lt_content form{
+  padding: 10px;
+}
+
+.code input{
+  width: 60%;
+}
+form .code .btn_getcode{
+  padding:0;
+  width: 35%;
+  height: 40px;
+  line-height: 40px;
+}
+.register_text{
+  height: 40px;
+  line-height:40px;
+  padding:10px;
+  font-size: 12px;
+}
+form .code .disabled{
+  background-color: #999;
+  color: #fff;
+}

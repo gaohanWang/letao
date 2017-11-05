@@ -73,6 +73,12 @@ $(".btn_add_cart").on("click",function () {
   var size = $(".size.now").html();//拿到size的值
   console.log(size);//就是点击的那个值
   var num = $(".mui-numbox-input").val();//拿到input框里的值
+  
+  //判断是否有选择尺码
+  if(!size){
+    mui.toast("请输入尺码");
+    return false;
+  }
   //发送ajax请求
   $.ajax({
     type:"post",
@@ -85,7 +91,7 @@ $(".btn_add_cart").on("click",function () {
     success:function (data) {
       console.log(data);
       if(data.success){
-        mui-alert("添加成功")
+        mui.toast("添加成功");
       }
       if(data.error === 400){
         location.href = "login.html?retUrl"+location.href;

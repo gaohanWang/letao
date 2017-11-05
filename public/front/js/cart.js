@@ -112,7 +112,6 @@ $(function () {
   })
 
 
-//计算总金额的功能
   //1. 需要给所有的checkbox注册事件
   $("#OA_task_2").on("change", ".ck", function () {
     //获取到选中的checkbox，计算选中checkbox的商品的金额
